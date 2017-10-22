@@ -3,6 +3,7 @@ import unittest
 #module being tested
 import app
 
+
 class AppTest(unittest.TestCase):
     def test_return_key(self):
         req = {'key': 'test'}
