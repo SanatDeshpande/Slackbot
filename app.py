@@ -2,6 +2,7 @@ import bottle as b
 from bottle import Bottle
 import json
 import os
+import socket
 
 app = Bottle()
 
@@ -21,5 +22,5 @@ def return_key():
 
 if __name__ == '__main__':
     PORT = os.environ.get('PORT')
-    print(PORT)
-    app.run(host='https://contrastbot.herokuapp.com/', port=PORT)
+    HOSTNAME = socket.gethostname()
+    app.run(host=HOSTNAME, port=PORT)
