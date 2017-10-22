@@ -5,7 +5,7 @@ import json
 app = Bottle()
 
 @app.route('/', method='POST')
-def test():
+def return_key():
     try:
         data = b.request.json
         if 'key' not in data:
@@ -17,4 +17,6 @@ def test():
     b.response.json = {'key': key}
     return b.response.json
 
-app.run(host='127.0.0.1', port=8080)
+
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=8080)
