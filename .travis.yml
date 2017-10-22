@@ -1,7 +1,14 @@
 language: python
 python:
-    - 3.5
+- 3.5
 install:
-    - pip install -r requirements.txt
+- pip install -r requirements.txt
 script:
-    - python app_test.py
+- python app_test.py
+deploy:
+  provider: heroku
+  api_key:
+    secure: mRKNTS7RA9bKLKNQXWV2pQgphsY5cDLwBdy6Yp1Vb8iUOVXyqOk4aaKsiP7RpuVe2ZNU8xkuNaNT4/508BmpVLh4p4yoUOm+R/WNYInjetbYa58PHuKU/I6lcn9QAvPz087Otn9kzIRLsoLXKjIQfkZ94HceulCT9Czv7T29BxmPIuDvgxNXriGD7C/xfMnbfy1vYb6MAgqFKlNvb8cA/lyZPP50YySdecXGQMvDEotS2iAkMaEa/2FcVetVg42D4SqAGbVEAIuUW2QN+bwtKirOmxcfUYa+GNzxCgaCh6v227LF0xdfc+G+ArFu3xTOGIDybax4Q0aegwy4OHVw+mrj15izn9cCT4lhGCsuKnK6H35tlbTUixq9X8HGpBDhyjAdj+RCeApDW9XhJ6ZuOYeN7VZhFZIkLRDTuFJa0za5OIKm+ukZOU3P7OKhQOCY6baBFNqAHfWU6S/1dN6JExnx4HX2LM7kdnXSMZndC2Mvc5LU0PztfHwT2NARcptc1fsZRHE7WJgTfOvOP1uQUqk7GyqvQE1b7GG4C9fmh4bxRM6tOXx5fqiALVBQbp6iJg7vIft6oxgQpECv5djP7E7/gLIRRLAN5RjtG9xPhRSE6PFDzXV9wxYF03kPx2J9bf/zmPdnUj4koKZf6Z2cv3Z+69HgZmGbXvKR2tPK38s=
+  app: contrastbot
+  on:
+    repo: SanatDeshpande/Slackbot
