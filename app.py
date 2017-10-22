@@ -19,4 +19,6 @@ def return_key():
 
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8080)
+    PORT = os.environ.get('PORT')
+    print(PORT)
+    app.run(host='https://contrastbot.herokuapp.com/', port=PORT)
