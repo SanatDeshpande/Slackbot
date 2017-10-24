@@ -16,7 +16,7 @@ def test():
     b.response.json = data
     return b.response.json
 
-@app.route('/challenge', method='POST')
+@app.route('/event', method='POST')
 def answer_challenge():
     try:
         data = b.request.json
