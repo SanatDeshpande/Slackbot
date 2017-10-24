@@ -10,10 +10,10 @@ class AppTest(unittest.TestCase):
         with boddle (json=req):
             assert app.test() == req
 
-    def test_answer_challenge(self):
+    def test_handle_event(self):
         req = {'challenge': 'accepted', 'another_var': 'some_string'}
         with boddle (json=req):
-            assert app.answer_challenge() == req['challenge']
+            assert app.handle_event() == req['challenge']
 
 if __name__ == '__main__':
     unittest.main()

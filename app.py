@@ -17,18 +17,18 @@ def test():
     return b.response.json
 
 @app.route('/event', method='POST')
-def answer_challenge():
+def handle_event():
+    #handles initial challenge
     try:
         data = b.request.json
-        if 'challenge' not in data:
-            b.HTTPResponse.status = 400
-            return
+        if 'challenge' in data:
+            return data['challenge']
     except:
         b.HTTPResponse.status = 400
         return
-
-    b.response.json = data
-    return b.response.json['challenge']
+    #handling of actual event
+    print(data)
+    return b.HTTPResponse.status = 200
 
 if __name__ == '__main__':
     PORT = os.environ.get('PORT')
