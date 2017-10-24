@@ -7,18 +7,28 @@ import socket
 app = Bottle()
 
 @app.route('/', method='POST')
-def return_key():
+def test():
     try:
         data = b.request.json
-        if 'key' not in data:
-            raise Exception('Key not found')
     except:
         raise Exception('Request Error')
 
-    key = data['key']
-    b.response.json = {'key': key}
+    b.response.json = data
     return b.response.json
 
+@app.route('/challenge', method='POST')
+def answer_challenge():
+    try:
+        data = b.request.json
+        if 'challenge' not in data:
+            b.HTTPResponse.status = 400
+            return
+    except:
+        b.HTTPResponse.status = 400
+        return
+
+    b.response.json = data
+    return b.response.json['challenge']
 
 if __name__ == '__main__':
     PORT = os.environ.get('PORT')
