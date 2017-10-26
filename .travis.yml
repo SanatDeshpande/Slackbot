@@ -12,4 +12,3 @@ deploy:
   app: contrastbot
   on:
     repo: SanatDeshpande/Slackbot
-    condition: false
