@@ -38,10 +38,9 @@ def handle_event():
         'text': 'response',
         'channel': data['event']['channel']
     }
-    print(payload)
-    results = requests.post("https://slack.com/api/chat.meMessage", params=payload)
-    print(results)
+
     return data
+
 
 if __name__ == '__main__':
     PORT = os.environ.get('PORT')
