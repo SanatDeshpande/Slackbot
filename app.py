@@ -3,7 +3,7 @@ from bottle import Bottle
 import json
 import os
 import socket
-
+import logging
 
 app = Bottle()
 
@@ -15,6 +15,7 @@ def test():
         raise Exception('Request Error')
 
     b.response.json = data
+    logging.warning(data)
     return b.response.json
 
 @app.route('/event', method='POST')
@@ -35,4 +36,8 @@ def handle_event():
 if __name__ == '__main__':
     PORT = os.environ.get('PORT')
     HOSTNAME = socket.gethostname()
+    if PORT is None:
+        PORT = '8080'
+    if 'local' in HOSTNAME:
+        HOSTNAME = '127.0.0.1'
     app.run(host=HOSTNAME, port=PORT)
