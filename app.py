@@ -31,7 +31,7 @@ def handle_event():
     #handling of actual event
     print(data)
     b.HTTPResponse.status = 200
-    return b.HTTPResponse.status
+    return b.HTTPResponse
 
 if __name__ == '__main__':
     PORT = os.environ.get('PORT')
