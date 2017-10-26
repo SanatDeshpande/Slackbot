@@ -40,6 +40,7 @@ def handle_event():
     }
     print(payload)
     results = requests.post("https://slack.com/api/chat.meMessage", params=payload)
+    print(results)
     return data
 
 if __name__ == '__main__':
