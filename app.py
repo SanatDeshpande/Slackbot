@@ -5,6 +5,7 @@ import os
 import socket
 import logging
 import sys
+import requests
 
 app = Bottle()
 
@@ -32,7 +33,13 @@ def handle_event():
         b.HTTPResponse.status = 400
         return
     #handling of actual event
-    print(data)
+    payload = {
+        'token': data['token'],
+        'text': 'response',
+        'channel': data['event']['channel']
+    }
+    print(payload)
+    results = requests.post("https://slack.com/api/chat.meMessage", params=payload)
     return data
 
 if __name__ == '__main__':
